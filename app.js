@@ -9,9 +9,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
 
+app.set("view engine", "ejs");
+
 app.get('/', (req, res) => {
-	res.sendFile(__dirname + '/index.html');
+	res.render('index');
 });
+
+app.get("/register", (req, res) => {
+	res.render("register");
+})
+
+app.post("/register", (req, res) => {
+
+})
 
 io.on('connection', (socket) => {
 	socket.on('chat message', (msg) => {
